@@ -19,6 +19,7 @@ namespace Module9_SortArray
             string[] FIO;
             Console.WriteLine("Введите 5 ФИО для сортировки:");
             //Записываем в массив
+            //dfsdfsd
             Array array = new Array();
             FIO = array.GetArrayFromConsole();
 
