@@ -4,12 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task1_ExceptionsArr
+namespace MyException
 {
-    public class ExceptionArr : Exception
+    public class MyException : Exception
     {
-        public ExceptionArr(string _exceptionMessage)
-        {
+        public MyException()
+        { }
+
+        public MyException(string message) : base(message)
+        { }
+
+    }
+
+    public class ExceptionMessage : MyException
+    {
+        public ExceptionMessage(string _exceptionMessage) : base(_exceptionMessage) 
+        { 
+        
         }
     }
 

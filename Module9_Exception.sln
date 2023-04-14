@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1_ExceptionsArr", "Task1_ExceptionsArr\Task1_ExceptionsArr.csproj", "{1FBD1791-EC97-4821-B553-79E54FDE2663}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module9_SortArray", "Module9_SortArray\Module9_SortArray.csproj", "{BD19DFAD-6ECD-43F4-BBED-365BFC18AFF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1FBD1791-EC97-4821-B553-79E54FDE2663}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FBD1791-EC97-4821-B553-79E54FDE2663}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FBD1791-EC97-4821-B553-79E54FDE2663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD19DFAD-6ECD-43F4-BBED-365BFC18AFF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD19DFAD-6ECD-43F4-BBED-365BFC18AFF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD19DFAD-6ECD-43F4-BBED-365BFC18AFF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD19DFAD-6ECD-43F4-BBED-365BFC18AFF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

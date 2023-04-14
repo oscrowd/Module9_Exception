@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task1_ExceptionsArr
+namespace MyException
 {
     public class FilesAndDir
     {
