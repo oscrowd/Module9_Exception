@@ -7,79 +7,63 @@ using System.Threading.Tasks;
 
 namespace Module9_SortArray
 {
+
     class Person
     {
-        public string Name { get; set; }
+        public string name { get; set; }
+        public Person(string name)
+
+        {
+            this.name = name;
+        }
+
+        public static int SortName(Person x, Person y)
+        {
+            int ret = x.name.CompareTo(y.name);
+            return ret;
+        }
+
     }
-    internal class Program
+
+
+    class Program
     {
+        static void Sort(List<Person> list, Func<Person, Person, int> comparer)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                for (int j = i + 1; j < list.Count; j++)
+                {
+                    if (comparer(list[i], list[j]) > 0)
+                    {
+                        var temp = list[i];
+                        list[i] = list[j];
+                        list[j] = temp;
+                    }
+                }
+            }
+
+        }
+
         static void Main(string[] args)
         {
-
-            string[] FIO = { "Иванов Иван Иванович", "Че Гевара Ирнесто", "Леонтьев Валерий Константинович", "Марсело Виейра Джуниор", "Паркер Питер Питерович"};
-            //Console.WriteLine("Введите 5 ФИО для сортировки:");
-            //Записываем в массив ФИО
-            //Array array = new Array();
-            //FIO = array.GetArrayFromConsole();
-            Console.WriteLine("Начальный массив");
-
-            foreach (string fio in FIO)
+            List<Person> Persons = new List<Person>()
             {
+            new Person("Peach"),
+            new Person("Avocado"),
+            new Person("Apple")
+            };
 
-                // Display Original List
-                Console.WriteLine(fio);
-            }
-            //Получаем число и сортируем
-            NumberSort numberSort = new NumberSort();
-            numberSort.NumberSortEvent += SortNum;
-            while (true)
-            {
-                try
-                {
-                    numberSort.ReadSort();
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Неправильно! Введите 1 или 2: ");
-                }
-            }
-            void SortNum(int number, string[] FIO1)
-            {
-                switch (number)
-                {
-                    case 1:
-                        IEnumerable<string> FIO2 = from fio in FIO1
-                                                   orderby fio.Substring(0, 1) descending
-                                                   select fio;
-                        break;
-                    case 2:
-                        FIO2 = from fio in FIO1
-                                                   orderby fio.Substring(0, 1) ascending
-                                                   select fio;
-                        break;
-                }
-            }
+            Sort(Persons, Person.SortName); ///////apple, avocado, peach
+            Console.WriteLine("Алфавитный список товаров:\r\n"
+            + string.Join("\r\n", Persons.Select(st => st.name)));
+            Console.WriteLine();
+
+
+
+
         }
-    }   
-       
-        class NumberSort
-        {
-            public delegate void NumberSortDelegate();
-            public event NumberSortDelegate NumberSortEvent;
-
-            public void ReadSort()
-            { 
-                Console.WriteLine();
-                Console.WriteLine("Введите число 1 или число2: ");
-                int number = Convert.ToInt32(Console.ReadLine());
-                if (number > 2 || number < 1) throw new FormatException();
-                NumberSort(number);
-            }
-            protected virtual void NumberSort(int number) 
-            {
-            NumberSortEvent?.Invoke();
-            }
-        }
+    }
 }
 
 
