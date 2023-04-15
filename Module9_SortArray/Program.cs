@@ -16,13 +16,13 @@ namespace Module9_SortArray
         static void Main(string[] args)
         {
 
-            string[] FIO;
-            Console.WriteLine("Введите 5 ФИО для сортировки:");
+            string[] FIO = { "Иванов Иван Иванович", "Че Гевара Ирнесто", "Леонтьев Валерий Константинович", "Марсело Виейра Джуниор", "Паркер Питер Питерович"};
+            //Console.WriteLine("Введите 5 ФИО для сортировки:");
             //Записываем в массив ФИО
-            Array array = new Array();
-            FIO = array.GetArrayFromConsole();
+            //Array array = new Array();
+            //FIO = array.GetArrayFromConsole();
             Console.WriteLine("Начальный массив");
-            
+
             foreach (string fio in FIO)
             {
 
@@ -43,40 +43,31 @@ namespace Module9_SortArray
                     Console.WriteLine("Неправильно! Введите 1 или 2: ");
                 }
             }
-            static void SortNum(int number)
-            { 
-                switch (number) 
+            void SortNum(int number, string[] FIO1)
+            {
+                switch (number)
                 {
-                    case 1: IEnumerable<string> FIO1 = from fio in FIO
-                                        orderby fio.Substring(0, 1) descending
-                                        select fio;
-                    break;
-                    case 2: IEnumerable<string> FIO1 = from fio in FIO
-                                        orderby fio.Substring(0, 1) ascending
-                                        select fio;
-                    break;
+                    case 1:
+                        IEnumerable<string> FIO2 = from fio in FIO1
+                                                   orderby fio.Substring(0, 1) descending
+                                                   select fio;
+                        break;
+                    case 2:
+                        FIO2 = from fio in FIO1
+                                                   orderby fio.Substring(0, 1) ascending
+                                                   select fio;
+                        break;
                 }
             }
-            
-
-            //IEnumerable<string> FIO1 = from fio in FIO
-            //                            orderby fio.Substring(0, 1) descending
-            //                            select fio;
-            //Console.WriteLine("Отсортированный список массив");
-
-            //foreach (string fio1 in FIO1)
-            //{
-
-                // Display Original List
-            //    Console.WriteLine(fio1);
-            //}
         }
+    }   
+       
         class NumberSort
         {
             public delegate void NumberSortDelegate();
             public event NumberSortDelegate NumberSortEvent;
 
-            void ReadSort()
+            public void ReadSort()
             { 
                 Console.WriteLine();
                 Console.WriteLine("Введите число 1 или число2: ");
@@ -86,10 +77,11 @@ namespace Module9_SortArray
             }
             protected virtual void NumberSort(int number) 
             {
-                NumberSortEvent?.Invoke(number);
+            NumberSortEvent?.Invoke();
             }
         }
-    }
-
-   
 }
+
+
+
+
